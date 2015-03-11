@@ -6,7 +6,6 @@
     <div class="pagedList" data-otf-target="#restaurantList">
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page}),
         PagedListRenderOptions.MinimalWithItemCountText)
-
     </div>
     @foreach (var item in Model)
     {
