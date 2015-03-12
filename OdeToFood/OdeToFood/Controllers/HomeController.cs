@@ -12,7 +12,7 @@ namespace OdeToFood.Controllers
     {
         OdeToFoodContext _dc = new OdeToFoodContext();
 
-        public ActionResult Autocomplete (string term)
+        public ActionResult Autocomplete(string term)
         {
             var model = _dc.Restaurants
                 .Where(r => r.Name.StartsWith(term))
@@ -23,7 +23,7 @@ namespace OdeToFood.Controllers
                 });
             return Json(model, JsonRequestBehavior.AllowGet);
         }
-
+    
         public ActionResult Index(string searchTerm = null, int page = 1)
         {
             var model = _dc.Restaurants
@@ -36,7 +36,7 @@ namespace OdeToFood.Controllers
                     City = r.City,
                     Country = r.Country,
                     CountOfReviews = r.Reviews.Count()
-                }).ToPagedList(page,10);
+                }).ToPagedList(page, 10);
 
             if (Request.IsAjaxRequest())
             {
